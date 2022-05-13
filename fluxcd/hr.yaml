@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kruise-rollout
+  namespace: vela-system
+spec:
+  chart:
+    spec:
+      chart: kruise-rollout
+      interval: 30s
+      sourceRef:
+        kind: HelmRepository
+        name: kruise-rollout
+      version: 0.1.0
+  interval: 5m0s
+  timeout: 10m0s
+
+
